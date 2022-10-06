@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #141f40;
+    height: 100px;
+}
+
+.main {
+    display: flex;
+}
+
+.green {
+    height: 250px;
+    width: 150px;
+    background-color: #80bfa8;
+}
+
+.main .right .top {
+    display: flex;
+}
+
+.yellow {
+    width: 150px;
+    height: 50px;
+    background-color: #dbd400;
+}
+
+.blue {
+    width: 150px;
+    height: 100px;
+    background-color: #0093b7;
+}
+
+.orange {
+    background-color: #ff9e6b;
+    width: 100px;
+    height: 150px;
+}
+
+.brown {
+    background-color: #8c2727;
+    width: 250px;
+    height: 100px;
+}
+
+.footer {
+    background-color: #d98d30;
+    height: 100px;
+}
