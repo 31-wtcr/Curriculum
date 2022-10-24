@@ -6,6 +6,7 @@ body {
 .header {
     background-color: #141f40;
     height: 100px;
+    width: 400px;
 }
 
 .main {
@@ -49,4 +50,5 @@ body {
 .footer {
     background-color: #d98d30;
     height: 100px;
+    width: 400px;
 }
