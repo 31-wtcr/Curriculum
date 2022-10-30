@@ -1,0 +1,26 @@
+@media screen and (max-width: 767px) {
+    body {
+        width: 300px;
+    }
+
+    .green {
+        width: 100px;
+        flex-shrink: 0;
+    }
+
+    .yellow {
+        width: 125px;
+    }
+
+    .blue {
+        width: 125px;
+    }
+
+    .orange {
+        width: 75px;
+    }
+
+    .brown {
+        width: 200px;
+    }
+}

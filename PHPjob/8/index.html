@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        th,
+        td {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <select onchange="changeLang()">
+        <option id="select">選択してください</option>
+        <option id="selected_jpn">日本語</option>
+        <option id="selected_en">English</option>
+        <option id="selected_all">全て表示</option>
+    </select>
+    <table>
+        <tr id="Japanese">
+            <th>日本</th>
+            <td>こんにちは</td>
+            <td>ありがとう</td>
+            <td>さようなら</td>
+        </tr>
+        <tr id="English">
+            <th>English</th>
+            <td>Hello</td>
+            <td>Thank you</td>
+            <td>Good Bye</td>
+        </tr>
+    </table>
+
+    <script>
+        function changeLang() {
+            const japanese = document.getElementById('Japanese');
+            const english = document.getElementById('English');
+
+            document.getElementById('selected_jpn').addEventListener('click', function () {
+                japanese.style.display = 'block';
+                english.style.display = 'none';
+            });
+            document.getElementById('selected_en').addEventListener('click', () => {
+                japanese.style.display = 'none';
+                english.style.display = 'block';
+            });
+            document.getElementById('selected_all').addEventListener('click', () => {
+                japanese.style.display = 'block';
+                english.style.display = 'block';
+            });
+        }
+    </script>
+</body>
+
+</html>

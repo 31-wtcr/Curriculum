@@ -1,0 +1,35 @@
+@media screen and (max-width: 479px) {
+    body {
+        width: 200px;
+    }
+
+    header {
+        height: auto;
+    }
+
+    .links {
+        margin: 20px 70px;
+        display: block;
+    }
+
+    .main {
+        display: block;
+    }
+
+    .left {
+        width: auto;
+        height: 100px;
+    }
+
+    .right {
+        width: auto;
+        height: auto;
+        padding: 20px 30px 10px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .contents {
+        margin: 0px;
+    }
+}

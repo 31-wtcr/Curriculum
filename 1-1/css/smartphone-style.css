@@ -1,0 +1,36 @@
+@media screen and (max-width: 479px) {
+    body {
+        width: 150px;
+    }
+
+    .main {
+        height: auto;
+        display: block;
+    }
+
+    .green {
+        height: 100px;
+        width: auto;
+    }
+
+    .main .right .top {
+        flex-direction: column-reverse;
+    }
+
+    .orange {
+        height: 100px;
+        width: auto;
+    }
+
+    .yellow {
+        width: auto;
+    }
+
+    .blue {
+        width: auto;
+    }
+
+    .brown {
+        width: auto;
+    }
+}
