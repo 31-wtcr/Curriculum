@@ -22,7 +22,12 @@
     <main>
         <table>
             <th>記事ID</th><th>タイトル</th><th>カテゴリ</th><th>本文</th><th>投稿日</th>
-            
+
+            <?php
+                require("getdata.php");
+                $data = new getData
+            ?>
+
         </table>
     </main>
     <footer>
