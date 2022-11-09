@@ -20,7 +20,10 @@
         </div>
     </header>
     <main>
-        <div class="table"></div>
+        <table>
+            <th>記事ID</th><th>タイトル</th><th>カテゴリ</th><th>本文</th><th>投稿日</th>
+            
+        </table>
     </main>
     <footer>
         <p>Y&I group.inc</p>
