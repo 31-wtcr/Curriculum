@@ -1,0 +1,54 @@
+body {
+    width: 1000px;
+    height: auto;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+header img {
+    background-color: #add8e6;
+}
+
+header .welcome_message {
+    width: 800px;
+    height: 60px;
+    background-color: #87ceeb;
+}
+
+header .login_timestamp {
+    width: 800px;
+    height: 60px;
+    background-color: #0ff;
+}
+
+header p {
+    text-align: end;
+    line-height: 60px;
+    margin: auto;
+}
+
+table {
+    margin: 10px auto;
+}
+
+table th {
+    background-color: #87ceeb;
+}
+
+table td {
+    background-color: #e0ffff;
+}
+
+footer {
+    background-color: #00ced1;
+    height: 50px;
+    margin: 0;
+}
+
+footer p {
+    margin: 0;
+}
