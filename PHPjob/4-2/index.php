@@ -21,11 +21,30 @@
     </header>
     <main>
         <table>
-            <th>記事ID</th><th>タイトル</th><th>カテゴリ</th><th>本文</th><th>投稿日</th>
+            <tr>
+                <th>記事ID</th><th>タイトル</th><th>カテゴリ</th><th>本文</th><th>投稿日</th>
+            </tr>
 
             <?php
                 require("getdata.php");
-                $data = new getData
+                $getData = new getData;
+                foreach($getData->getPostData() as $data){
+                    echo '<tr><td>' . $data['id'] . '</td><td>' . $data['title'] . '</td><td>'; 
+                    switch ($data['category_no']) {
+                        case 1:
+                            echo '食事';
+                            break;
+
+                        case 2:
+                            echo '旅行';
+                            break;
+                        
+                        default:
+                            echo 'その他';
+                            break;
+                    };
+                    echo '</td><td>' . $data['comment'] . '</td><td>' . $data['created'] . '</td><tr>';
+                };
             ?>
 
         </table>
