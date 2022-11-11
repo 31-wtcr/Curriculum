@@ -11,12 +11,22 @@
     <header>
         <img src="1599315827_logo.png" alt="logo" width="200px" height="120px">
         <div>
-            <div class="welcome_message">
-                <p>ようこそ隼田翔吾さん</p>
-            </div>
-            <div class="login_timestamp">
-                <p>最終ログイン日：2019-07-02 21:56:05</p>
-            </div>
+            <?php
+                // クラスを外部ファイルから読み込み
+                require_once("getdata.php");
+                // インスタンス作成
+                $getData = new getData;
+                // インスタンスの関数の返り値を変数に代入
+                $user = $getData->getUserData();
+                // 変数内の連想配列を取り出して出力
+                echo
+                '<div class="welcome_message">
+                    <p>ようこそ' . $user['last_name'] . $user['first_name'] . 'さん</p>
+                </div>
+                <div class="login_timestamp">
+                    <p>最終ログイン日：' . $user['last_login'] . '</p>
+                </div>';
+            ?>
         </div>
     </header>
     <main>
@@ -26,10 +36,11 @@
             </tr>
 
             <?php
-                require("getdata.php");
-                $getData = new getData;
+                // 18行目で作成したインスタンスの関数を実行。
+                // 取り出したレコードをテーブル内に表示。
                 foreach($getData->getPostData() as $data){
                     echo '<tr><td>' . $data['id'] . '</td><td>' . $data['title'] . '</td><td>'; 
+                    // 数値ごとに出力文字を変更。
                     switch ($data['category_no']) {
                         case 1:
                             echo '食事';
