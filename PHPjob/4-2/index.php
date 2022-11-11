@@ -34,7 +34,6 @@
             <tr>
                 <th>記事ID</th><th>タイトル</th><th>カテゴリ</th><th>本文</th><th>投稿日</th>
             </tr>
-
             <?php
                 // 18行目で作成したインスタンスの関数を実行。
                 // 取り出したレコードをテーブル内に表示。
@@ -45,11 +44,9 @@
                         case 1:
                             echo '食事';
                             break;
-
                         case 2:
                             echo '旅行';
                             break;
-                        
                         default:
                             echo 'その他';
                             break;
@@ -57,7 +54,6 @@
                     echo '</td><td>' . $data['comment'] . '</td><td>' . $data['created'] . '</td><tr>';
                 };
             ?>
-
         </table>
     </main>
     <footer>
