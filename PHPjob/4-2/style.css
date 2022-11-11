@@ -31,6 +31,18 @@ header p {
     margin: auto;
 }
 
+table {
+    margin: 10px auto;
+}
+
+table th {
+    background-color: #87ceeb;
+}
+
+table td {
+    background-color: #e0ffff;
+}
+
 footer {
     background-color: #00ced1;
     height: 50px;
