@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <select onchange="changeLang()">
+    <select id="select_box" onchange="changeLang()">
         <option id="select">選択してください</option>
         <option id="selected_jpn">日本語</option>
         <option id="selected_en">English</option>
@@ -42,22 +42,46 @@
 
     <script>
         function changeLang() {
+            const select_box = document.getElementById('select_box');
+            const selected_jpn = document.getElementById('selected_jpn');
+            const selected_en = document.getElementById('selected_en');
+            const selected_all = document.getElementById('selected_all');
             const japanese = document.getElementById('Japanese');
             const english = document.getElementById('English');
 
-            document.getElementById('selected_jpn').addEventListener('click', function () {
-                japanese.style.display = 'block';
-                english.style.display = 'none';
-            });
-            document.getElementById('selected_en').addEventListener('click', () => {
-                japanese.style.display = 'none';
-                english.style.display = 'block';
-            });
-            document.getElementById('selected_all').addEventListener('click', () => {
-                japanese.style.display = 'block';
-                english.style.display = 'block';
-            });
-        }
+            switch (select_box.value) {
+                case selected_jpn.innerHTML:
+                    japanese.style.display = 'block';
+                    english.style.display = 'none';
+                    break;
+                case selected_en.innerHTML:
+                    japanese.style.display = 'none';
+                    english.style.display = 'block';
+                    break;
+                case selected_all.innerHTML:
+                    japanese.style.display = 'block';
+                    english.style.display = 'block';
+                    break;
+            };
+        };
+
+        // function changeLang() {
+        //     const japanese = document.getElementById('Japanese');
+        //     const english = document.getElementById('English');
+
+        //     document.getElementById('selected_jpn').addEventListener('click', function () {
+        //         japanese.style.display = 'block';
+        //         english.style.display = 'none';
+        //     });
+        //     document.getElementById('selected_en').addEventListener('click', () => {
+        //         japanese.style.display = 'none';
+        //         english.style.display = 'block';
+        //     });
+        //     document.getElementById('selected_all').addEventListener('click', () => {
+        //         japanese.style.display = 'block';
+        //         english.style.display = 'block';
+        //     });
+        // }
     </script>
 </body>
 
