@@ -4,7 +4,7 @@
 require_once('db_connect.php');
 
 // POSTで送られていれば処理実行
-if (isset($_POST['signUp'])){
+if (!empty($_POST['signUp'])){
     $name = $_POST['name'];
     $password = $_POST['password'];
     // nameとpassword両方送られてきたら処理実行
@@ -35,11 +35,7 @@ if (isset($_POST['signUp'])){
         }
     }
 };
-
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html>
