@@ -10,7 +10,7 @@ $dbh = connect();
 
 try{
     // SQL文の準備
-    $sql = "SELECT * FROM posts";
+    $sql = "SELECT * FROM posts ORDER BY id DESC";
     // プリペアドステートメントの作成
     $stmt = $dbh->prepare($sql);
     // 実行
