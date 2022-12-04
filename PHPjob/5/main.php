@@ -36,7 +36,12 @@ try{
     <a href="create_post.php">記事投稿！</a>
     <table>
         <tr>
-            <th>記事ID</th><th>タイトル</th><th>本文</th><th>投稿日</th>
+            <th>記事ID</th>
+            <th>タイトル</th>
+            <th>本文</th>
+            <th>投稿日</th>
+            <th></th>
+            <th></th>
         </tr>
         <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){ ?>
             <tr>
@@ -44,6 +49,8 @@ try{
                 <td><?php echo $row['title']; ?></td>
                 <td><?php echo $row['content']; ?></td>
                 <td><?php echo $row['time']; ?></td>
+                <td><a href="edit_post.php?id=<?php echo $row['id']; ?>">編集</a></td>
+                <td><a href="delete_post.php?id=<?php echo $row['id']; ?>">削除</a></td>
             </tr>
         <?php } ?>
     </table>
