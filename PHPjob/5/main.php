@@ -32,7 +32,8 @@ try{
 <body>
     <h1>メインページ</h1>
     <p>ようこそ<?php echo $_SESSION["user_name"]; ?>さん</p>
-    <a href="logout.php">ログアウト</a>
+    <a href="logout.php">ログアウト</a><br>
+    <a href="create_post.php">記事投稿！</a>
     <table>
         <tr>
             <th>記事ID</th><th>タイトル</th><th>本文</th><th>投稿日</th>
