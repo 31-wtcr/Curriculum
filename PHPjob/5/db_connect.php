@@ -14,7 +14,7 @@
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $pdo;
         // 例外処理
-        } catch (PDOExceptiion $e) {
+        } catch (PDOException $e) {
             // エラーメッセージを取得して表示
             echo 'Error' . $e->getMessgae();
             // DBとの接続を終了
