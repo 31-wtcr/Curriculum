@@ -12,10 +12,7 @@ check_user_logged_in();
 $id = $_GET['id'];
 // もし、$idが空であったらmain.phpにリダイレクト
 // 不正なアクセス対策
-if (empty($id)) {
-    header("Location: main.php");
-    exit;
-}
+redirect_main_unless_parameter($id);
 
 // PDOのインスタンスを取得
 $pdo = connect();
