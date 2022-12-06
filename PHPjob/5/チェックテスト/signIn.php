@@ -1,3 +1,62 @@
+<?php
+// function.phpの読み込み
+require_once('function.php');
+
+// $_POSTが空であれば処理を終了する
+if(empty($_POST)){
+    return;
+// ユーザー名が空であれば警告を表示
+}elseif(empty($_POST['username'])) {
+    echo 'Username is empty.';
+// パスワードが空であれば警告を表示
+}elseif (empty($_POST['password'])) {
+    echo 'Password is empty.';
+
+// ユーザー名とパスワードが空でなければ以下の処理を続行
+}elseif(!empty($_POST['username']) && !empty($_POST['password'])){
+    // ユーザー名とパスワードのエスケープ処理
+    $username = htmlspecialchars($_POST['username'], ENT_QUOTES);
+    $password = htmlspecialchars($_POST['password'], ENT_QUOTES);
+    // ログイン処理開始
+    $pdo = db_connect();
+    try {
+        // SQL文用意
+        $sql = 'SELECT * FROM users WHERE name = :username';
+        // プリペアドステートメント化
+        $stmt = $pdo->prepare($sql);
+        // ユーザー名をバインド
+        $stmt->bindParam(':username', $username);
+        // 実行
+        $stmt->execute();
+    // 例外処理
+    } catch (PDOException $e) {
+        //エラーメッセージ表示
+        echo 'Error: ' . $e->getMessage();
+        // 接続終了
+        die();
+    }
+
+    // 結果が一行取得できた場合$rowに格納して返す
+    if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        // 保存されているパスワードと入力されたパスワードのハッシュが一致するか判定
+        if (password_verify($password, $row['password'])) {
+            // セッションに値を保存
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['user_name'] = $row['name'];
+            // main.phpにリダイレクト
+            header('location: main.php');
+            exit;
+        // パスワードが一致しない場合はエラーメッセージを出力
+        }else{
+            echo 'Username or password is wrong.';
+        }
+    // 結果が取得できなかった場合はエラーメッセージを出力
+    }else {
+        echo 'Username or password is wrong.';
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
