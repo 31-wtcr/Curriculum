@@ -1,0 +1,16 @@
+CREATE TABLE books (
+    id INT NOT NULL AUTO_INCREMENT,
+    title VARCHAR(50),
+    date DATE,
+    stock INT,
+    PRIMARY KEY (id)
+)
+DEFAULT CHARACTER SET UTF8;
+
+CREATE TABLE users(
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(50),
+    password VARCHAR(255),
+    PRIMARY KEY (id)
+)
+DEFAULT CHARACTER SET UTF8;
