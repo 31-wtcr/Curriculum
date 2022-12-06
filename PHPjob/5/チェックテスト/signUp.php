@@ -41,7 +41,7 @@ if(empty($_POST['signUp'])){
     // ユーザー新規登録処理開始
     $pdo = db_connect();
     try {
-        // ユーザー名が一致するか検索するSQL文用意
+        // SQL文用意
         $sql = 'INSERT INTO users (name, password) VALUES (:username, :password)';
         // パスワードハッシュ化
         $password_hashed = password_hash($password, PASSWORD_DEFAULT);
