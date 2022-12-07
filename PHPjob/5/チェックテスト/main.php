@@ -3,8 +3,9 @@
 require_once('function.php');
 // DB接続
 $pdo = db_connect();
-
+// セッション開始
 session_start();
+// ログイン確認
 check_user_logged_in();
 
 try {
@@ -44,7 +45,9 @@ try {
             <th>在庫数</th>
             <th></th>
         </tr>
-        <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+        <?php
+        // 結果を一行取得し表示
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
             <tr>
                 <td><?php echo $row['title']; ?></td>
                 <td><?php echo $row['date']; ?></td>

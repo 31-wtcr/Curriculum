@@ -1,14 +1,21 @@
 <?php
+// function.php読み込み
 require_once('function.php');
+// セッション開始
 session_start();
+// ログイン確認
 check_user_logged_in();
+// POSTが空でなければ実行
 if (!empty($_POST)){
+    // titleが空であればエラーメッセージ表示
     if(empty($_POST['title'])){
         echo 'Title is empty.';
     }
+    // dateが空であればエラーメッセージ表示
     if(empty($_POST['date'])){
         echo 'Date is empty.';
     }
+    // stock_numberが空であればエラーメッセージ表示
     if(empty($_POST['stock_number'])){
         echo 'Stock number is empty.';
     }

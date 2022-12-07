@@ -2,6 +2,7 @@
 // function.phpの読み込み
 require_once('function.php');
 
+// セッション開始
 session_start();
 
 // $_POSTが空でなければ処理を実行する
