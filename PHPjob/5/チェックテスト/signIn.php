@@ -2,6 +2,8 @@
 // function.phpの読み込み
 require_once('function.php');
 
+session_start();
+
 // $_POSTが空でなければ処理を実行する
 if(!empty($_POST)){
     // ユーザー名が空であれば警告を表示
