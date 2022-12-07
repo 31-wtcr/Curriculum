@@ -22,3 +22,11 @@ function db_connect(){
         die();
     }
 }
+
+// ログインしていなければログインページへリダイレクト
+function check_user_logged_in(){
+    if (empty($_SESSION['user_name'])) {
+        header("location: signIn.php");
+        exit;
+    }
+}
