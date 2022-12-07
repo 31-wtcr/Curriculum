@@ -2,6 +2,9 @@
 // function.phpの読み込み
 require_once('function.php');
 
+// セッション開始
+session_start();
+
 // $_POSTが空でなければ処理を実行する
 if(!empty($_POST)){
     // ユーザー名が空であれば警告を表示
@@ -65,11 +68,56 @@ if(!empty($_POST)){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        .wrapper {
+            width: 400px;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        a {
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+        }
+
+        a.register {
+            background-color: teal;
+        }
+
+        input {
+            margin: 10px 0px;
+        }
+
+        input[type="text"], input[type='password']{
+            width: 400px;
+            padding: 10px;
+        }
+
+        input[type='submit'] {
+            background-color: dodgerblue;
+            padding: 10px 50px;
+            border-radius: 5px;
+            text-decoration: none;
+            border: none;
+            color: white;
+        }
+
+    </style>
 </head>
 <body>
     <div class="wrapper">
         <h1>ログイン画面</h1>
-        <a href="signUp.php">新規ユーザー登録</a>
+        <a href="signUp.php" class="register">新規ユーザー登録</a>
     </div>
         <form action="signIn.php" method="post">
         <input type="text" placeholder='ユーザー名' name='username' id='username'><br>

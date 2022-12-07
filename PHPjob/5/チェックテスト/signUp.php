@@ -52,6 +52,51 @@ if(!empty($_POST['signUp'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        .wrapper {
+            width: 400px;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        a {
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+        }
+
+        a.register {
+            background-color: teal;
+        }
+
+        input {
+            margin: 10px 0px;
+        }
+
+        input[type="text"], input[type='password']{
+            width: 400px;
+            padding: 10px;
+        }
+
+        input[type='submit'] {
+            background-color: dodgerblue;
+            padding: 10px 50px;
+            border-radius: 5px;
+            text-decoration: none;
+            border: none;
+            color: white;
+        }
+
+    </style>
 </head>
 <body>
     <div class="wrapper">
