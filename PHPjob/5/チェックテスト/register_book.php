@@ -59,6 +59,32 @@ if (!empty($_POST)){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        input {
+            margin: 10px 0px;
+        }
+
+        input[type="text"], input[type='date'], input[type='number']{
+            width: 400px;
+            padding: 10px;
+        }
+
+        input[type='submit'] {
+            background-color: dodgerblue;
+            padding: 10px 50px;
+            border-radius: 5px;
+            text-decoration: none;
+            border: none;
+            color: white;
+        }
+
+    </style>
 </head>
 <body>
     <h1>本 登録画面</h1>
@@ -66,7 +92,7 @@ if (!empty($_POST)){
         <input type="text" name="title" id="title" placeholder='タイトル'><br>
         <input type="date" name="date" id="date" placeholder='発売日'><br>
         <label for="stock_number">在庫数</label><br>
-        <input type="number" name="stock_number" id="stock_number"><br>
+        <input type="number" name="stock_number" id="stock_number" placeholder='選択してください'><br>
         <input type="submit" value="登録">
     </form>
 </body>
