@@ -1,3 +1,41 @@
+<?php
+require_once('function.php');
+session_start();
+check_user_logged_in();
+if (!empty($_POST)){
+    if(empty($_POST['title'])){
+        echo 'Title is empty.';
+    }
+    if(empty($_POST['date'])){
+        echo 'Date is empty.';
+    }
+    if(empty($_POST['stock_number'])){
+        echo 'Stock number is empty.';
+    }
+
+    if(!empty($_POST['title']) && !empty($_POST['date']) && !empty($_POST['stock_number'])){
+        $title = htmlspecialchars($_POST['title'], ENT_QUOTES);
+        $date = htmlspecialchars($_POST['date'], ENT_QUOTES);
+        $stock = htmlspecialchars($_POST['stock_number'], ENT_QUOTES);
+
+        $pdo = db_connect();
+
+        try {
+            $sql = 'INSERT INTO books (title, date, stock) VALUES (:title, :date, :stock)';
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':title', $title);
+            $stmt->bindParam(':date', $date);
+            $stmt->bindParam(':stock', $stock, PDO::PARAM_INT);
+            $stmt->execute();
+            header('location: main.php');
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+            die();
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +46,9 @@
 </head>
 <body>
     <h1>本 登録画面</h1>
-    <form action="register_book.php" method="post">
+    <form action="" method="post">
         <input type="text" name="title" id="title" placeholder='タイトル'><br>
-        <input type="text" name="date" id="date" placeholder='発売日'><br>
+        <input type="date" name="date" id="date" placeholder='発売日'><br>
         <label for="stock_number">在庫数</label><br>
         <input type="number" name="stock_number" id="stock_number"><br>
         <input type="submit" value="登録">
