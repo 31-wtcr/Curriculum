@@ -19,24 +19,33 @@ if (!empty($_POST)){
     if(empty($_POST['stock_number'])){
         echo 'Stock number is empty.';
     }
-
+    // title, date, stock_numberが揃っていれば実行
     if(!empty($_POST['title']) && !empty($_POST['date']) && !empty($_POST['stock_number'])){
+        // title, date, stock_numberをエスケープ処理
         $title = htmlspecialchars($_POST['title'], ENT_QUOTES);
         $date = htmlspecialchars($_POST['date'], ENT_QUOTES);
         $stock_number = htmlspecialchars($_POST['stock_number'], ENT_QUOTES);
-
+        // DB接続
         $pdo = db_connect();
 
         try {
+            // sql文用意
             $sql = 'INSERT INTO books (title, date, stock_number) VALUES (:title, :date, :stock_number)';
+            // プリペアドステートメント
             $stmt = $pdo->prepare($sql);
+            // バインド
             $stmt->bindParam(':title', $title);
             $stmt->bindParam(':date', $date);
             $stmt->bindParam(':stock_number', $stock_number, PDO::PARAM_INT);
+            // 実行
             $stmt->execute();
+            // メインにリダイレクト
             header('location: main.php');
+        // 例外処理
         } catch (PDOException $e) {
+            // エラーメッセージ出力
             echo 'Error: ' . $e->getMessage();
+            // 終了
             die();
         }
     }
