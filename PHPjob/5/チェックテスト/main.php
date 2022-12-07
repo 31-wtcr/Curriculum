@@ -1,3 +1,27 @@
+<?php
+// function.phpの読み込み
+require_once('function.php');
+// DB接続
+$pdo = db_connect();
+
+session_start();
+check_user_logged_in();
+
+try {
+    // sql文の準備
+    $sql = 'SELECT * FROM books';
+    // プリペアドステートメント
+    $stmt = $pdo->prepare($sql);
+    // 実行
+    $stmt->execute();
+} catch (PDOException $e) {
+    //エラーメッセージの出力
+    echo 'Error: ' . $e->getMessage();
+    // 終了
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +35,7 @@
     <div class='wrapper'>
         <a href="register_book.php">新規登録</a>
         <a href="signOut.php">ログアウト</a>
+        <?php var_dump($_SESSION['user_name']); ?>
     </div>
     <table>
         <tr>
@@ -19,6 +44,14 @@
             <th>在庫数</th>
             <th></th>
         </tr>
+        <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+            <tr>
+                <td><?php echo $row['title']; ?></td>
+                <td><?php echo $row['date']; ?></td>
+                <td><?php echo $row['stock']; ?></td>
+                <td><a href="delete_book.php?id=<?php echo $row['id']; ?>">削除</a></td>
+            </tr>
+        <?php } ?>
     </table>
 </body>
 </html>
