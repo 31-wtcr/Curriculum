@@ -36,7 +36,6 @@ try {
     <div class='wrapper'>
         <a href="register_book.php">新規登録</a>
         <a href="signOut.php">ログアウト</a>
-        <?php var_dump($_SESSION['user_name']); ?>
     </div>
     <table>
         <tr>
@@ -51,7 +50,7 @@ try {
             <tr>
                 <td><?php echo $row['title']; ?></td>
                 <td><?php echo $row['date']; ?></td>
-                <td><?php echo $row['stock']; ?></td>
+                <td><?php echo $row['stock_number']; ?></td>
                 <td><a href="delete_book.php?id=<?php echo $row['id']; ?>">削除</a></td>
             </tr>
         <?php } ?>

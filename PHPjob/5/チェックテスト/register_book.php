@@ -23,16 +23,16 @@ if (!empty($_POST)){
     if(!empty($_POST['title']) && !empty($_POST['date']) && !empty($_POST['stock_number'])){
         $title = htmlspecialchars($_POST['title'], ENT_QUOTES);
         $date = htmlspecialchars($_POST['date'], ENT_QUOTES);
-        $stock = htmlspecialchars($_POST['stock_number'], ENT_QUOTES);
+        $stock_number = htmlspecialchars($_POST['stock_number'], ENT_QUOTES);
 
         $pdo = db_connect();
 
         try {
-            $sql = 'INSERT INTO books (title, date, stock) VALUES (:title, :date, :stock)';
+            $sql = 'INSERT INTO books (title, date, stock_number) VALUES (:title, :date, :stock_number)';
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':title', $title);
             $stmt->bindParam(':date', $date);
-            $stmt->bindParam(':stock', $stock, PDO::PARAM_INT);
+            $stmt->bindParam(':stock_number', $stock_number, PDO::PARAM_INT);
             $stmt->execute();
             header('location: main.php');
         } catch (PDOException $e) {
