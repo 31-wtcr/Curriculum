@@ -99,7 +99,7 @@ try {
             <tr>
                 <td><?php echo $row['title']; ?></td>
                 <td><?php echo $row['date']; ?></td>
-                <td><?php echo $row['stock_number']; ?></td>
+                <td><?php echo $row['stock']; ?></td>
                 <td><a href="delete_book.php?id=<?php echo $row['id']; ?>" class="delete">削除</a></td>
             </tr>
         <?php } ?>

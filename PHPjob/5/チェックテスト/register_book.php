@@ -15,28 +15,28 @@ if (!empty($_POST)){
     if(empty($_POST['date'])){
         echo 'Date is empty.';
     }
-    // stock_numberが空であればエラーメッセージ表示
-    if(empty($_POST['stock_number'])){
-        echo 'Stock number is empty.';
+    // stockが空であればエラーメッセージ表示
+    if(empty($_POST['stock'])){
+        echo 'Stock is empty.';
     }
-    // title, date, stock_numberが揃っていれば実行
-    if(!empty($_POST['title']) && !empty($_POST['date']) && !empty($_POST['stock_number'])){
-        // title, date, stock_numberをエスケープ処理
+    // title, date, stockが揃っていれば実行
+    if(!empty($_POST['title']) && !empty($_POST['date']) && !empty($_POST['stock'])){
+        // title, date, stockをエスケープ処理
         $title = htmlspecialchars($_POST['title'], ENT_QUOTES);
         $date = htmlspecialchars($_POST['date'], ENT_QUOTES);
-        $stock_number = htmlspecialchars($_POST['stock_number'], ENT_QUOTES);
+        $stock = htmlspecialchars($_POST['stock'], ENT_QUOTES);
         // DB接続
         $pdo = db_connect();
 
         try {
             // sql文用意
-            $sql = 'INSERT INTO books (title, date, stock_number) VALUES (:title, :date, :stock_number)';
+            $sql = 'INSERT INTO books (title, date, stock) VALUES (:title, :date, :stock)';
             // プリペアドステートメント
             $stmt = $pdo->prepare($sql);
             // バインド
             $stmt->bindParam(':title', $title);
             $stmt->bindParam(':date', $date);
-            $stmt->bindParam(':stock_number', $stock_number, PDO::PARAM_INT);
+            $stmt->bindParam(':stock', $stock, PDO::PARAM_INT);
             // 実行
             $stmt->execute();
             // メインにリダイレクト
@@ -91,8 +91,8 @@ if (!empty($_POST)){
     <form action="" method="post">
         <input type="text" name="title" id="title" placeholder='タイトル'><br>
         <input type="date" name="date" id="date" placeholder='発売日'><br>
-        <label for="stock_number">在庫数</label><br>
-        <input type="number" name="stock_number" id="stock_number" placeholder='選択してください'><br>
+        <label for="stock">在庫数</label><br>
+        <input type="number" name="stock" id="stock" placeholder='選択してください'><br>
         <input type="submit" value="登録">
     </form>
 </body>
